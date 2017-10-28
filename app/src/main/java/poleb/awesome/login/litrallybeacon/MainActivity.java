@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.kontakt.sdk.android.ble.connection.OnServiceReadyListener;
@@ -20,6 +21,8 @@ import com.kontakt.sdk.android.common.profile.IEddystoneNamespace;
 
 import java.util.Timer;
 
+import poleb.awesome.login.mylibrary.MyView;
+
 import static poleb.awesome.login.litrallybeacon.MyApplication.proximityManager;
 
 
@@ -30,17 +33,21 @@ public class MainActivity extends AppCompatActivity {
     private Context mContext;
     private Timer T=new Timer();
     private int count = 0;
-    private TextView textView1, textView2;
+//    private TextView textView1, textView2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        View v = new MyView(this);
+        setContentView(v);
+
+//        setContentView(R.layout.activity_main);
         mContext = this;
 
-        textView1 = (TextView) findViewById(R.id.textView1);
-        textView2 = (TextView) findViewById(R.id.textView2);
+//        textView1 = (TextView) findViewById(R.id.textView1);
+//        textView2 = (TextView) findViewById(R.id.textView2);
 
         onCreateBeacons();
 
@@ -87,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     private void createNotification(boolean enter, String venue) {
 
         if (enter){
-            textView1.setText("Entered region: " + venue);
+//            textView1.setText("Entered region: " + venue);
             count = 0;
 
 //            T.scheduleAtFixedRate(new TimerTask() {
@@ -105,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            }, 1000, 1000);
         } else {
-            textView1.setText("Last Entered region: " + venue);
+//            textView1.setText("Last Entered region: " + venue);
 //            T.cancel();
         }
 

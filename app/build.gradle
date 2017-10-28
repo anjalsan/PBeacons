@@ -28,4 +28,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.kontaktio:sdk:3.3.2'
     compile 'com.kontaktio:sdk:3.3.2'
+    compile project(":mylibrary")
 }
